@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Información del Personaje</title> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="css/estilos.css"> 
+</head> 
+<body> 
+  <div id="app" class="container py-5"> 
+    <div v-if="personaje" class="d-flex justify-content-between align-items-center">
+      <div class="image-container">
+        <img :src="personaje.image" class="img-fluid rounded-circle shadow-lg" alt="Imagen del personaje">
+      </div>
+      <div class="info-container">
+        <h3>{{ personaje.name }}</h3>
+        <p><strong>Especie:</strong> {{ personaje.species }}</p>
+        <p><strong>Género:</strong> {{ personaje.gender }}</p>
+        <p><strong>Estado:</strong> {{ personaje.status }}</p>
+        <p><strong>Origen:</strong> {{ personaje.origin.name }}</p>
+        <p><strong>Ubicación:</strong> {{ personaje.location.name }}</p>
+        <p><strong>Tipo:</strong> {{ personaje.type || 'N/A' }}</p>
+        <p><strong>Fecha de creación:</strong> {{ personaje.created }}</p>
+      </div>
+    </div>
+    <button class="btn btn-lg btn-primary mt-4" @click="volver">Volver al Catálogo</button> 
+  </div> 
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.2.0/dist/vue.global.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+  <script src="./js/informacion.js"></script> 
+</body> 
+</html>

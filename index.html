@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de personajes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+  <div id="app" class="container py-4">
+    <h1 class="text-center mb-4">Catálogo de personajes</h1>
+
+    <!-- Filtro de personajes -->
+    <div class="mb-3">
+      <input type="text" v-model="filtro" class="form-control" placeholder="Buscar personajes por nombre...">
+    </div>
+
+    <!-- Slider de personajes -->
+    <div class="slider-container">
+      <div
+        class="card"
+        v-for="producto in productosFiltrados"
+        :key="producto.id"
+      >
+        <img :src="producto.image" class="card-img-top" alt="Imagen del personaje">
+        <div class="card-body">
+          <h5 class="card-title">{{ producto.name }}</h5>
+
+          <!-- Botón para agregar al carrito -->
+          <button class="btn btn-primary" @click="agregarAlCarrito(producto)">Agregar</button>
+
+          <!-- Botón para disminuir cantidad en el carrito -->
+          <button class="btn btn-warning mt-2" @click="disminuirCantidad(producto)">Disminuir</button>
+
+          <!-- Botón para ir a la página de información del personaje -->
+          <a :href="'informacion.html?id=' + producto.id" class="btn btn-info mt-2">Información</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de progreso -->
+    <div class="mt-4">
+      <h5 class="text-center">Progreso: {{ progreso }}%</h5>
+      <div class="progress">
+        <div
+          class="progress-bar"
+          :style="{ width: progreso + '%' }"
+        >
+          {{ progreso }}%
+        </div>
+      </div>
+    </div>
+
+    <!-- Enlace al apartado de personajes encontrados -->
+    <div class="text-center mt-4">
+      <a href="encontrados.html" class="btn btn-info">Ver personajes encontrados</a>
+      <a href="informacion.html" class="btn btn-info">informacion del personaje</a>
+      
+    </div>
+  </div>
+<script src=".js/Vue3.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.2.0/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+</html>

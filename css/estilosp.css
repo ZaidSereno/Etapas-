@@ -1,0 +1,58 @@
+.table {
+  background-color: var(--card-bg);
+  border: 1px solid var(--morty-blue);
+  border-radius: 10px;
+}
+
+.table thead th {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+}
+
+.table-hover tbody tr:hover {
+  background-color: var(--morty-blue);
+  color: var(--light-bg);
+}
+
+.table-bordered {
+  border: 2px solid var(--rick-green);
+}
+
+.table td, .table th {
+  vertical-align: middle;
+  padding: 15px;
+}
+
+td img {
+  transition: transform 0.3s ease;
+}
+
+td img:hover {
+  transform: scale(1.1);
+}
+
+td button {
+  border-radius: 5px;
+}
+
+td button:hover {
+  transform: scale(1.1);
+}
+
+.btn-danger {
+  background-color: var(--highlight-red);
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #ff4d4d;
+}
+
+.table-responsive {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
